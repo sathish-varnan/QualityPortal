@@ -1,0 +1,47 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" controllerName="com.quality.portal.qualityportal.controller.Login" displayBlock="true">
+    <App>
+        <pages><Page title="{i18n>loginPageTitle}" class="sapUiResponsiveContentPadding" backgroundDesign="Solid">
+                <content>
+                    <f:DynamicPage>
+                        <f:content>
+                            <VBox alignItems="Center" justifyContent="Center" class="sapUiLargeMarginTopBottom" width="100%">
+                                <MessageStrip id="L_message_strip" visible="false" showIcon="true" showCloseButton="true" class="sapUiSmallMarginBottom"/>
+                                <Image src="img/person.jpg" width="6rem" class="sapUiMediumMarginBottom custom" decorative="false" densityAware="false" />
+                                <Text text="Welcome back, Engineer!!"/>
+                                <form:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" singleContainerFullSize="false" width="28rem" class="sapUiSmallMargin loginForm">
+                                    <Label text="{i18n>usernameLabel}" required="true" labelFor="input_ID">
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"/>
+                                        </layoutData>
+                                    </Label>
+                                    <Input id="input_ID" placeholder="{i18n>usernamePlaceholder}" value="{/username}" class="sapUiSmallMarginBottom" showSuggestion="false" showValueHelp="false">
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"/>
+                                        </layoutData>
+                                        <customData>
+                                            <core:CustomData xmlns:core="sap.ui.core" key="type" value="text"/>
+                                        </customData>
+                                    </Input>
+
+                                    <Label text="{i18n>passwordLabel}" required="true" labelFor="input_password">
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"/>
+                                        </layoutData>
+                                    </Label>
+                                    <Input id="input_password" type="Password" placeholder="{i18n>passwordPlaceholder}" value="{/password}" class="sapUiSmallMarginBottom">
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"/>
+                                        </layoutData>
+                                    </Input>
+                                    
+                                    <ToolbarSpacer/>
+                                    <Button id="button1" text="{i18n>loginButtonText}" icon="sap-icon://arrow-right" press="onClick" type="Emphasized" width="100%" class="sapUiSmallMarginTopBottom loginButton"/>
+                                </form:SimpleForm>
+                            </VBox>
+                        </f:content>
+                    </f:DynamicPage>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

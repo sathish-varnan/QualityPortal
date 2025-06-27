@@ -1,0 +1,91 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" controllerName="com.quality.portal.qualityportal.controller.IL" displayBlock="true">
+    <App>
+        <pages>
+            <Page title="Inspection lot" showNavButton="true" navButtonPress=".navBack">
+                <headerContent>
+                    <Button xmlns="sap.m" text="logout" id="button0" activeIcon="sap-icon://activity-2" icon="sap-icon://log" tooltip="logout"/>
+                </headerContent>
+                <content>
+                <IconTabBar selectedKey="All" id="bar1" select="onFilter">
+                    <items>
+                        <IconTabFilter text="Inspection lots" count="--" showAll="true" id="filter5" key="All"/>
+                        <IconTabSeparator/>
+                        <IconTabFilter text="Pending" count="--" icon="sap-icon://task" iconColor="Critical" id="filter6" key="Pen"/>
+                        <IconTabFilter text="Accepted" count="--" icon="sap-icon://shipping-status" iconColor="Positive" id="filter7" key="Acc"/>
+                        <IconTabFilter text="Rejected" count="--" icon="sap-icon://decline" iconColor="Negative" id="filter8" key="Rej"/>
+                    </items>
+                <content>
+                    <sap.ui.comp.smartfilterbar:SmartFilterBar xmlns:sap.ui.comp.smartfilterbar="sap.ui.comp.smartfilterbar" class="sapContrastPlus" ariaLabelledBy="__label2" smartVariant="Element sap.ui.comp.smartvariants.SmartVariantManagement#__bar0-variant" hSpacing="0" filterBarExpanded="true" showGoOnFB="true" id="bar0">
+                        <sap.ui.comp.smartfilterbar:controlConfiguration>
+                            <sap.ui.comp.smartfilterbar:ControlConfiguration id="configuration0"/>
+                        </sap.ui.comp.smartfilterbar:controlConfiguration>
+                        <sap.ui.comp.smartfilterbar:content>
+                            <SearchField xmlns="sap.m" placeholder="Search for lot number" id="field0"/>
+                            <DatePicker xmlns="sap.m" id="picker0" placeholder="records from.."/>
+                        </sap.ui.comp.smartfilterbar:content>
+                    </sap.ui.comp.smartfilterbar:SmartFilterBar>
+                    <Table noDataText="Drop column list items here and columns in the area above" showSeparators="Inner" id="tableIL" items="{/YSAT_QM_IL}">
+                        <infoToolbar>
+                            <OverflowToolbar>
+                                <Label text="All the available inspection lots"/>
+                            </OverflowToolbar>
+				        </infoToolbar>
+                        <columns>
+                            <Column id="column9">
+                                <header>
+                                    <Label text="Lot number" id="label9"/>
+                                </header>
+                            </Column>
+                            <Column id="column10">
+                                <header>
+                                    <Label text="Material number" id="label10"/>
+                                </header>
+                            </Column>
+                            <Column id="column11">
+                                <header>
+                                    <Label text="Inspection type" id="label11"/>
+                                </header>
+                            </Column>
+                            <Column>
+                                <header>
+                                    <Label text="Lot created"/>
+                                </header>
+                            </Column>
+                            <Column>
+                                <header>
+                                    <Label text="Lot quantity"/>
+                                </header>
+                            </Column>
+                            <Column>
+                                <header>
+                                    <Label text="Unit"/>
+                                </header>
+                            </Column>
+                            <Column>
+                                <header>
+                                    <Label text="Decision"/>
+                                </header>
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem type="Active" id="item10">
+                                <cells>
+                                    <Text text="{prueflos}" id="text12"/>
+                                    <Text text="{selmatnr}" id="text13"/>
+                                    <Text text="{art}" id="text14"/>
+                                    <Text text="{                                         path: 'enstehdat',                                          type: 'sap.ui.model.type.Date',                                          formatOptions: {                                              style: 'medium'                                         }                                     }"/>
+                                    <Text text="{losmenge}"/>
+                                    <Text text="{mengeneinh}"/>
+                                    <ObjectStatus text="{                                         path: 'vcode',                                         formatter: '.valueFormat'                                     }" state="{                                         path: 'vcode',                                         formatter: '.codeFormart'                                     }">
+                                    </ObjectStatus>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+                </IconTabBar>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

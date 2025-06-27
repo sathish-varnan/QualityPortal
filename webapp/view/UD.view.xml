@@ -1,0 +1,90 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" controllerName="com.quality.portal.qualityportal.controller.UD" displayBlock="true">
+    <App>
+        <pages>
+            <Page title="Usage Decision" showNavButton="true" navButtonPress=".onNavBack">
+                <headerContent>
+                    <Button xmlns="sap.m" text="Logout" id="buttonUD1" icon="sap-icon://log" press=".onLogoutPress"/>
+                </headerContent>
+            <content>
+                <sap.ui.comp.smartfilterbar:SmartFilterBar xmlns:sap.ui.comp.smartfilterbar="sap.ui.comp.smartfilterbar" class="sapContrastPlus" ariaLabelledBy="__label1" smartVariant="Element sap.ui.comp.smartvariants.SmartVariantManagement#__bar0-variant" hSpacing="0" id="barUD1">
+                    <sap.ui.comp.smartfilterbar:controlConfiguration>
+                        <sap.ui.comp.smartfilterbar:ControlConfiguration id="configurationUD1"/>
+                    </sap.ui.comp.smartfilterbar:controlConfiguration>
+                <sap.ui.comp.smartfilterbar:content>
+                    <SearchField xmlns="sap.m" placeholder="Search for inspection lot" id="fieldUD1"/>
+                    <Select xmlns="sap.m" id="select0">
+                        <items>
+                            <core:Item xmlns:core="sap.ui.core" key="item-key-3" text="--Valuation Mode--" id="itemUD0"/>
+                            <core:Item xmlns:core="sap.ui.core" key="item-key-1" text="Material Specific" id="itemUD1"/>
+                            <core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Materil Group" id="itemUD2"/>
+                            <core:Item xmlns:core="sap.ui.core" key="item-key-4" text="Mixed valuation" id="itemUD8"/>
+                            <core:Item xmlns:core="sap.ui.core" key="item-key-5" text="Alternative valucation" id="itemUD9"/>
+                        </items>
+                    </Select>
+                </sap.ui.comp.smartfilterbar:content>
+                <Select xmlns="sap.m" id="select0_1751024028637">
+                    <items>
+                    <core:Item xmlns:core="sap.ui.core" key="item-key-3" text="--Usage Decision--" id="itemUD5"/>
+                        <core:Item xmlns:core="sap.ui.core" key="item-key-1" text="Accepted" id="itemUD3"/>
+                        <core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Rejected" id="itemUD4"/>
+
+                    </items>
+                    
+                </Select>
+                </sap.ui.comp.smartfilterbar:SmartFilterBar>
+                <Table noDataText="Drop column list items here and columns in the area above" id="tableUD" items="{/YSAT_QM_UD}">
+                <infoToolbar>
+                            <OverflowToolbar>
+                                <Label text="All the usage decisions"/>
+                            </OverflowToolbar>
+				        </infoToolbar>
+                    <items>
+                        <ColumnListItem type="Active">
+                            <cells>
+                                <Text text="{prueflos}"/>
+                                <Text text="{vwerks}"/>
+                                <Text text="{ path: 'vauswahlmg', formatter: '.valuationModes'}"/>
+                                <ObjectStatus text="{ path:'vcode', formatter: '.UDStatus'}" state="{ path: 'vcode', formatter:'.UDStatusValueState'}"/>
+                                <Text text="{vname}"/>
+                                <Text text="{ path: 'vdatum', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' }}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                    <columns>
+                        <Column>
+                            <header>
+                                <Label text="Inspection lot"/>
+                            </header>
+                        </Column>
+                        <Column>
+                            <header>
+                                <Label text="Plant"/>
+                            </header>
+                        </Column>
+                        <Column>
+                            <header>
+                                <Label text="Valuation modes"/>
+                            </header>
+                        </Column>
+                        <Column>
+                            <header>
+                                <Label text="Usage decision"/>
+                            </header>
+                        </Column>
+                        <Column>
+                            <header>
+                                <Label text="Made by"/>
+                            </header>
+                        </Column>
+                        <Column>
+                            <header>
+                                <Label text="Made on"/>
+                            </header>
+                        </Column>
+                    </columns>
+                </Table>
+            </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

@@ -1,0 +1,82 @@
+<mvc:View 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:card="sap.f.cards"
+    controllerName="com.quality.portal.qualityportal.controller.Dashboard" 
+    displayBlock="true"
+    height="100%">
+    
+    <App>
+        <pages>
+            <Page 
+                title="Quality Management Dashboard" 
+                showNavButton="true"
+                navButtonPress=".navBack"
+                backgroundDesign="Solid"
+                class="sapUiResponsiveContentPadding">
+                
+                <headerContent>
+                    <Button 
+                        text="Logout" 
+                        id="logoutButton" 
+                        press=".logout"
+                        icon="sap-icon://log"
+                        type="Transparent"
+                        class="sapUiSmallMarginEnd"/>
+                </headerContent>
+                
+                <content>
+                    <f:GridContainer 
+                        id="qmDashboard"
+                        class="sapUiSmallMargin"
+                        snapToRow="true">
+                        <f:layout>
+                            <f:GridContainerSettings rowSize="5rem" columnSize="5rem" gap="1rem" />
+                        </f:layout>
+                        <GenericTile 
+                            header="Inspection Lot"
+                            subheader="view lot details" 
+                            frameType="OneByOne"
+                            press="onILClick"
+                            class="sapUiTinyMargin">
+                            <layoutData>
+                                <f:GridContainerItemLayoutData minRows="2" columns="2" />
+                            </layoutData>
+                            <TileContent>
+                                <ImageContent src="sap-icon://inspection" class="sapUiSmallMargin"/>
+                            </TileContent>
+                        </GenericTile>
+                        <GenericTile 
+                            header="Result Recording"
+                            subheader="view all records" 
+                            frameType="OneByOne"
+                            press="onRRClick"
+                            class="sapUiTinyMargin">
+                            <layoutData>
+                                <f:GridContainerItemLayoutData minRows="2" columns="2" />
+                            </layoutData>
+                            <TileContent>
+                                <ImageContent src="sap-icon://record" class="sapUiSmallMargin"/>
+                            </TileContent>
+                        </GenericTile>
+                        <GenericTile 
+                            header="Usage Decision"
+                            subheader="view all results"
+                            frameType="OneByOne"
+                            press="onUDClick"
+                            class="sapUiTinyMargin">
+                            <layoutData>
+                                <f:GridContainerItemLayoutData minRows="2" columns="2" />
+                            </layoutData>
+                            <TileContent>
+                                <ImageContent src="sap-icon://validate" class="sapUiSmallMargin"/>
+                            </TileContent>
+                        </GenericTile>
+                    </f:GridContainer>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

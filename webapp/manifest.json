@@ -1,0 +1,148 @@
+{
+  "_version": "1.60.0",
+  "sap.app": {
+    "id": "com.quality.portal.qualityportal",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.18.1",
+      "toolsId": "ebda2b71-e84a-4785-a562-0d257b2d35cb"
+    },
+    "dataSources": {
+      "YSAT_QM_BIND_VAN": {
+        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='YSAT_QM_BIND_VAN',Version='0001')/$value/",
+        "type": "ODataAnnotation",
+        "settings": {
+          "localUri": "localService/mainService/YSAT_QM_BIND_VAN.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/YSAT_QM_BIND/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "YSAT_QM_BIND_VAN"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.120.14",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.quality.portal.qualityportal.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ],
+      "img": [
+        "img/person.jpg"
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "targetAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "com.quality.portal.qualityportal.view",
+        "async": true,
+        "viewPath": "com.quality.portal.qualityportal.view"
+      },
+      "routes": [
+        {
+          "name": "Login",
+          "pattern": "",
+          "view": "Login",
+          "targetAggregation": "pages",
+          "controlId": "app"
+        },
+        {
+          "name": "Dashboard",
+          "pattern": "Dashboard",
+          "view": "Dashboard",
+          "targetAggregation": "pages",
+          "controlId": "app"
+        },
+        {
+          "name": "IL",
+          "pattern": "IL",
+          "view": "IL",
+          "targetAggregation": "pages",
+          "controlId": "app"
+        },
+        {
+          "name": "RR",
+          "pattern": "RR",
+          "view": "RR",
+          "targetAggregation": "pages",
+          "controlId": "app"
+        },
+        {
+          "name": "UD",
+          "pattern": "UD",
+          "view": "UD",
+          "targetAggregation": "pages",
+          "controlId": "app"
+        }
+      ]
+    },
+    "rootView": {
+      "viewName": "com.quality.portal.qualityportal.view.App",
+      "type": "XML",
+      "id": "bpp",
+      "async": true
+    }
+  }
+}

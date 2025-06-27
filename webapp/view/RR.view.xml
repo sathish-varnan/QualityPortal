@@ -1,0 +1,103 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" controllerName="com.quality.portal.qualityportal.controller.RR" displayBlock="true">
+    <App>
+        <pages>
+            <Page title="Result Recording" showNavButton="true" titleLevel="H1" navButtonPress=".navBack">
+                <headerContent>
+                    <Button xmlns="sap.m" text="Logout" id="buttonr1" icon="sap-icon://log" press=".logout"/>
+                </headerContent>
+            <content>
+                <sap.ui.comp.smartfilterbar:SmartFilterBar 
+                    xmlns:sap.ui.comp.smartfilterbar="sap.ui.comp.smartfilterbar" 
+                    class="sapContrastPlus"
+                    ariaLabelledBy="__label0 __xmlview0--label1 __label1" 
+                    smartVariant="Element sap.ui.comp.smartvariants.SmartVariantManagement#__bar0-variant" 
+                    hSpacing="0"
+                    id="barrr1" 
+                    >
+                    <sap.ui.comp.smartfilterbar:controlConfiguration>
+                        <sap.ui.comp.smartfilterbar:ControlConfiguration id="configuration1"/>
+                    </sap.ui.comp.smartfilterbar:controlConfiguration>
+                <sap.ui.comp.smartfilterbar:content>
+                    <SearchField xmlns="sap.m" placeholder="Search for inspection lot" id="field1"/>
+                </sap.ui.comp.smartfilterbar:content>
+                <Select xmlns="sap.m" id="selectinsptype">
+                    <items>
+                        <core:Item xmlns:core="sap.ui.core" key="item-key-2" text="None"/>
+                        <core:Item xmlns:core="sap.ui.core" key="item-key-1" text="Inspection at Goods Receipt" id="item0_1751018647040"/>
+                        <core:Item xmlns:core="sap.ui.core" key="item-key-3" text="Production Inspection"/>
+                        <core:Item xmlns:core="sap.ui.core" key="item-key-4" text="Stock Inspection"/>
+                        </items>
+                    
+                </Select>
+                <Select xmlns="sap.m" id="selectstatus">
+                    <items>
+                        <core:Item xmlns:core="sap.ui.core" key="item-key-0" text="None"/>
+                        <core:Item xmlns:core="sap.ui.core" key="item-key-1" text="Accepted" id="item2"/>
+                        <core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Rejected" id="item3"/>
+                    </items>
+                </Select>
+                </sap.ui.comp.smartfilterbar:SmartFilterBar>
+                <Table noDataText="Drop column list items here and columns in the area above" id="tableRR" alternateRowColors="true" items="{/YSAT_QM_RR}">
+                    <infoToolbar>
+                            <OverflowToolbar>
+                                <Label text="All the result recordings"/>
+                            </OverflowToolbar>
+				        </infoToolbar>
+                    <items>
+                        <ColumnListItem type="Active" id="item0">
+                            <cells>
+                                <Text text="{prueflos}" id="text2"/>
+                                <Text text="{selmatnr}" id="text3"/>
+                                <Text text="{merknr}"/>
+                                <ObjectStatus 
+                                    text="{ path: 'mbewertg', formatter: '.statusTextFormatter'}"
+                                    state="{ path: 'mbewertg', formatter: '.statusFormatter'}"/>
+                                <Text text="{ path: 'art', formatter: '.inspectionType'}"/>
+                                <ObjectStatus text="Done" state="{ path: 'stat35', formatter: '.stat35'}" icon="sap-icon://hint"/>
+                                <Text text="{werk}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                    <columns>
+                        <Column id="column0">
+                            <header>
+                                <Label text="Lot number" id="label0"/>
+                            </header>
+                        </Column>
+                        <Column>
+                            <header>
+                                <Label text="Material number"/>
+                            </header>
+                        </Column>
+                        <Column id="column1">
+                            <header>
+                                <Label text="Characteristic number" id="label1"/>
+                            </header>
+                        </Column>
+                        <Column>
+                            <header>
+                                <Label text="Status"/>
+                            </header>
+                        </Column>
+                        <Column>
+                            <header>
+                                <Label text="Inspection type"/>
+                            </header>
+                        </Column>
+                        <Column>
+                            <header>
+                                <Label text="Decision"/>
+                            </header>
+                        </Column>
+                        <Column>
+                            <header>
+                                <Label text="Plant"/>
+                            </header>
+                        </Column>
+                    </columns>
+                </Table>
+            </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

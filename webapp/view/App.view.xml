@@ -1,0 +1,3 @@
+<mvc:View controllerName="com.quality.portal.qualityportal.controller.App" displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+    <App id="app"></App>    
+</mvc:View>
